@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from './../logo.svg'
 import { Body, Body2 } from './Body'
 import Counter from './Counter'
 
@@ -7,9 +6,9 @@ export class Header extends React.Component {
   render () {
     return (
       <header className='App-header'>
-        <Counter initialValue={2}/>
-        <Counter initialValue={4}/>
-        <Counter initialValue={6}/>
+        <Counter initialValue={2} />
+        <Counter initialValue={4} />
+        <Counter initialValue={6} />
         <div>
           {this.props.title}
           {this.props.num}
