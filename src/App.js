@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
-const Body = () => (
+const Body = props => (
   <div>
-    Some text from function jsx{' '}
+    {props.text}
+    {props.text2}
   </div>
 )
 
@@ -13,22 +14,14 @@ class Header extends Component {
     return (
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
-        <p>
+        <div>
           {this.props.title}
-        </p>
-        <p>
           {this.props.num}
-        </p>
-        <p>
           {this.props.myArr[0]}
-        </p>
-        <p>
           {JSON.stringify(this.props.myObj)}
-        </p>
-				<p>
-					{this.props.myFunc(100,10)}
-				</p>
-        <Body />
+          {this.props.myFunc(100, 10)}
+        </div>
+        <Body text={'text from body function.'} text2="Test" />
         <a
           className='App-link'
           href='https://reactjs.org'
@@ -54,8 +47,8 @@ class App extends Component {
             a: 5,
             b: 6
           }}
-					myArr={[1, 2, 3, 4, 5]}
-					myFunc={add}
+          myArr={[1, 2, 3, 4, 5]}
+          myFunc={add}
         />
       </div>
     )
