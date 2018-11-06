@@ -1,29 +1,30 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './App.css'
-import ImageSlider from './Components/ImageSlider'
+// import { App } from './App.1';
 import Counter from './Components/Counter'
 
-class App extends Component {
-  state = {
+export class App extends React.Component {
+	handleToggle = () => {
+		if(this.state.visible){
+			this.setState({
+				visible : false
+			}) 
+		} else {
+			this.setState({
+				visible: true
+			})
+		}
+	}
+	state = {
     visible: true
   }
-
   render () {
-    const buttonText = this.state.visible ? 'hide' : 'show'
-
-    const slider = this.state.visible ? <ImageSlider /> : <Counter />
     return (
       <div>
-        {slider}
-        <button
-          onClick={() => {
-            this.setState({
-              visible: !this.state.visible
-            })
-          }}
-        >
-          {buttonText}
-        </button>
+        <div className={this.state.visible ? 'show' : 'hidden'}>
+          <Counter />
+        </div>
+        <button onClick={this.handleToggle}>Toggle</button>
       </div>
     )
   }

@@ -30,3 +30,11 @@
     transform: rotate(360deg);
   }
 }
+
+.hidden {
+  display: none;
+}
+
+.show {
+  background-color: gray;
+}
