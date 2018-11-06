@@ -12,13 +12,11 @@ export default class ImageSlider extends React.Component {
   }
 
   handleNext = () => {
-    console.log(this.state, 'before')
     this.setState({
       idx: this.state.idx + 1 > this.state.images.length - 1
         ? 0
         : this.state.idx + 1
     })
-    console.log(this.state, 'after')
   }
 
   render () {

@@ -1,12 +1,15 @@
 import React from 'react'
 
 export default class Counter extends React.Component {
-  constructor (props) {
-    super(props)
+  state = {
+    count: 0
+  }
 
-    this.state = {
-      count: props.initialValue ? props.initialValue : 3
-    }
+  componentWillMount () {
+    console.log('mouting..')
+  }
+  componentWillUnmount () {
+    console.log('unmounting')
   }
 
   handleClick = e => {
@@ -20,10 +23,6 @@ export default class Counter extends React.Component {
       })
     }
   }
-
-  // handleClick = () =>{
-
-  // }
 
   render () {
     return (

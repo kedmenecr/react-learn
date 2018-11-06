@@ -1,25 +1,30 @@
 import React, { Component } from 'react'
-import { Header } from './Components/Header'
 import './App.css'
 import ImageSlider from './Components/ImageSlider'
+import Counter from './Components/Counter'
 
 class App extends Component {
+  state = {
+    visible: true
+  }
+
   render () {
-    const add = (a, b) => a + b
+    const buttonText = this.state.visible ? 'hide' : 'show'
+
+    const slider = this.state.visible ? <ImageSlider /> : <Counter />
     return (
-      // <div className='App'>
-      //   <Header
-      //     title='Hello from App'
-      //     num={5}
-      //     myObj={{
-      //       a: 5,
-      //       b: 6
-      //     }}
-      //     myArr={[1, 2, 3, 4, 5]}
-      //     myFunc={add}
-      //   />
-      // </div>
-      <ImageSlider />
+      <div>
+        {slider}
+        <button
+          onClick={() => {
+            this.setState({
+              visible: !this.state.visible
+            })
+          }}
+        >
+          {buttonText}
+        </button>
+      </div>
     )
   }
 }
